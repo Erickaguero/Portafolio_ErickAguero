@@ -428,24 +428,23 @@
 
         .projects-slider {
             position: relative;
-            overflow: hidden;
             border-radius: 20px;
         }
 
         .projects-container {
-            display: flex;
-            transition: transform 0.5s ease;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+            padding: 1rem 0;
         }
 
         .project-card {
-            min-width: 350px;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.3s ease;
-            flex-shrink: 0;
+            width: 100%;
         }
 
         .project-card:hover {
@@ -461,6 +460,27 @@
             justify-content: center;
             font-size: 3rem;
             color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-image .fallback-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.8;
         }
 
         .project-content {
@@ -679,13 +699,14 @@
                 font-size: 0.8rem;
             }
 
-            .projects-slider {
-                margin: 0 -1rem;
-                padding: 0 1rem;
+            .projects-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0.5rem 0;
             }
 
             .project-card {
-                min-width: 280px;
+                min-width: auto;
             }
 
             .slider-prev {
@@ -773,8 +794,13 @@
                 padding: 0.7rem;
             }
 
+            .projects-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
             .project-card {
-                min-width: 260px;
+                min-width: auto;
             }
 
             .contact-card {
@@ -1135,17 +1161,82 @@
             <div class="projects-container">
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-code"></i>
+                        <img src="public/images/Gestión Recursos Humanos.png" alt="Gestión de Recursos Humanos Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <i class="fas fa-users fallback-icon" style="display: none;"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Proyecto 1</h3>
-                        <p class="project-description">Descripción del proyecto de ejemplo. Una aplicación web moderna con React y Node.js.</p>
+                        <h3 class="project-title">Gestión de Recursos Humanos</h3>
+                        <p class="project-description">Sistema web completo para la gestión integral de recursos humanos, desarrollado en ASP.NET Core MVC que permite administrar colaboradores, nóminas, asistencias, permisos y más.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">ASP.NET Core</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">ADO.NET</span>
+                            <span class="tech-tag">JWT</span>
+                        </div>
+                        <a href="https://github.com/Erickaguero/GestionDeRecursosHumanos" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Ver Repositorio
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="public/images/To-Do-App.png" alt="To-Do App Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <i class="fas fa-tasks fallback-icon" style="display: none;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">To-Do App</h3>
+                        <p class="project-description">App de lista de tareas pendientes con interfaz intuitiva y funcionalidades completas para gestión de tareas.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <a href="https://github.com/Erickaguero/To-do-App" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Ver Repositorio
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="public/images/XumTech.png" alt="XumTech ChatBot Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <i class="fas fa-robot fallback-icon" style="display: none;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">XumTech ChatBot</h3>
+                        <p class="project-description">Mini bot conversacional para responder preguntas frecuentes con interfaz web interactiva.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <a href="https://github.com/Erickaguero/xumtech-chatbot" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Ver Repositorio
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="public/images/ChatWeb.png" alt="ChatWeb Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <i class="fas fa-comments fallback-icon" style="display: none;"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">ChatWeb</h3>
+                        <p class="project-description">Aplicación de Chat en Tiempo Real con funcionalidades completas de mensajería instantánea.</p>
                         <div class="project-tech">
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">Socket.io</span>
                             <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">JWT</span>
                         </div>
-                        <a href="https://github.com/Erickaguero" target="_blank" class="project-link">
+                        <a href="https://github.com/Erickaguero/ChatWeb" target="_blank" class="project-link">
                             <i class="fab fa-github"></i>
                             Ver Repositorio
                         </a>
@@ -1153,47 +1244,24 @@
                 </div>
                 <div class="project-card">
                     <div class="project-image">
-                        <i class="fas fa-mobile-alt"></i>
+                        <img src="public/images/Pokedex.png" alt="Pokedex Screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <i class="fas fa-gamepad fallback-icon" style="display: none;"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Proyecto 2</h3>
-                        <p class="project-description">Aplicación móvil innovadora desarrollada con tecnologías modernas.</p>
+                        <h3 class="project-title">Pokedex</h3>
+                        <p class="project-description">Selector de Pokemon con interfaz moderna desarrollada con React y Vite.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Flask</span>
-                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Vite</span>
+                            <span class="tech-tag">JavaScript</span>
                         </div>
-                        <a href="https://github.com/Erickaguero" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i>
-                            Ver Repositorio
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Proyecto 3</h3>
-                        <p class="project-description">Proyecto de inteligencia artificial con machine learning.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">Pandas</span>
-                        </div>
-                        <a href="https://github.com/Erickaguero" target="_blank" class="project-link">
+                        <a href="https://github.com/Erickaguero/Pokedex" target="_blank" class="project-link">
                             <i class="fab fa-github"></i>
                             Ver Repositorio
                         </a>
                     </div>
                 </div>
             </div>
-            <button class="slider-btn slider-prev" onclick="slideProjects(-1)">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="slider-btn slider-next" onclick="slideProjects(1)">
-                <i class="fas fa-chevron-right"></i>
-            </button>
         </div>
     </section>
 
@@ -1283,31 +1351,7 @@
             });
         }
 
-        // Slider de proyectos
-        let currentSlide = 0;
-        const projectCards = document.querySelectorAll('.project-card');
-        const totalSlides = projectCards.length;
-
-        function slideProjects(direction) {
-            const container = document.querySelector('.projects-container');
-            const cardWidth = 370; // 350px + 20px gap
-            
-            currentSlide += direction;
-            
-            if (currentSlide < 0) {
-                currentSlide = Math.max(0, totalSlides - 3);
-            } else if (currentSlide > totalSlides - 3) {
-                currentSlide = 0;
-            }
-            
-            const translateX = currentSlide * cardWidth;
-            container.style.transform = `translateX(-${translateX}px)`;
-        }
-
-        // Auto-slide para proyectos
-        function autoSlideProjects() {
-            slideProjects(1);
-        }
+        // Projects grid - no slider needed
 
         // Efecto de parallax suave mejorado
         function parallaxEffect() {
@@ -1350,14 +1394,7 @@
             animateOnScroll();
             parallaxEffect();
             
-            // Inicializar slider de proyectos
-            setTimeout(() => {
-                const projectCards = document.querySelectorAll('.project-card');
-                if (projectCards.length > 0) {
-                    // Auto-slide cada 5 segundos
-                    setInterval(autoSlideProjects, 5000);
-                }
-            }, 1000);
+            // Projects grid initialized automatically
             
             // Smooth scrolling para navegación
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1378,33 +1415,43 @@
 
         // Función para descargar CV
         function downloadCV() {
-            // Aquí puedes cambiar 'CV_Erick_Aguero.pdf' por el nombre real de tu archivo CV
-            const cvFileName = 'CV_Erick_Aguero.pdf';
+            // Nombre del archivo CV que coincide con el archivo real
+            const cvFileName = 'CV_ERICK_AGUERO.pdf';
             
-            // Crear un enlace temporal para la descarga
-            const link = document.createElement('a');
-            link.href = cvFileName;
-            link.download = cvFileName;
-            link.style.display = 'none';
-            
-            // Agregar al DOM, hacer clic y remover
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Mostrar mensaje de confirmación
-            showDownloadMessage();
+            try {
+                // Crear un enlace temporal para la descarga
+                const link = document.createElement('a');
+                link.href = cvFileName;
+                link.download = cvFileName;
+                link.style.display = 'none';
+                
+                // Agregar al DOM, hacer clic y remover
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Mostrar mensaje de confirmación
+                showDownloadMessage('success', '¡CV descargado exitosamente!');
+                
+            } catch (error) {
+                console.error('Error al descargar CV:', error);
+                showDownloadMessage('error', 'Error al descargar el CV. Por favor, inténtalo de nuevo.');
+            }
         }
 
         // Mostrar mensaje de descarga
-        function showDownloadMessage() {
+        function showDownloadMessage(type = 'success', messageText = '¡CV descargado exitosamente!') {
             const message = document.createElement('div');
+            const isSuccess = type === 'success';
+            const icon = isSuccess ? 'fa-check-circle' : 'fa-exclamation-triangle';
+            const bgColor = isSuccess ? 'linear-gradient(135deg, var(--primary-blue), var(--accent-blue))' : 'linear-gradient(135deg, #dc2626, #ef4444)';
+            
             message.innerHTML = `
                 <div style="
                     position: fixed;
                     top: 20px;
                     right: 20px;
-                    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+                    background: ${bgColor};
                     color: white;
                     padding: 1rem 1.5rem;
                     border-radius: 10px;
@@ -1412,21 +1459,25 @@
                     z-index: 10000;
                     animation: slideInRight 0.3s ease-out;
                     font-weight: 600;
+                    max-width: 300px;
                 ">
-                    <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
-                    ¡CV descargado exitosamente!
+                    <i class="fas ${icon}" style="margin-right: 8px;"></i>
+                    ${messageText}
                 </div>
             `;
             
             document.body.appendChild(message);
             
-            // Remover el mensaje después de 3 segundos
+            // Remover el mensaje después de 4 segundos (más tiempo para errores)
+            const duration = isSuccess ? 3000 : 4000;
             setTimeout(() => {
                 message.style.animation = 'fadeOut 0.3s ease-out';
                 setTimeout(() => {
-                    document.body.removeChild(message);
+                    if (document.body.contains(message)) {
+                        document.body.removeChild(message);
+                    }
                 }, 300);
-            }, 3000);
+            }, duration);
         }
 
         // Efecto hover para botones con ondas
